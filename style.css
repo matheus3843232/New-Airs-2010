@@ -27,7 +27,7 @@
   --sombra-hover: 0 10px 30px rgba(37, 99, 235, 0.2);
   --transicao: 0.3s ease;
 }
- 
+
 /* ==========================================================
    BASE
 ========================================================== */
@@ -396,6 +396,78 @@ footer { background: var(--azul-marinho); color: var(--branco); text-align: cent
   animation: carregando 1s linear infinite;
 }
  
+.search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.search-box input{
+    width: 320px;
+    padding: 14px 18px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+
+    background: rgba(255,255,255,0.15);
+    color: white;
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.25),
+        inset 0 0 0 1px rgba(255,255,255,0.2);
+
+    transition: 0.3s;
+}
+
+.search-box input::placeholder{
+    color: rgba(255,255,255,0.8);
+}
+
+.search-box input:focus{
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 30px rgba(37,99,235,0.4),
+        inset 0 0 0 2px #3b82f6;
+}
+
+.search-box button{
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+
+    color: white;
+    background: linear-gradient(
+        135deg,
+        #3b82f6,
+        #2563eb
+    );
+
+    box-shadow:
+        0 8px 25px rgba(37,99,235,0.4);
+
+    transition: 0.3s;
+}
+
+.search-box button:hover{
+    transform: translateY(-3px);
+    box-shadow:
+        0 12px 35px rgba(37,99,235,0.6);
+}
+
+.search-box button:active{
+    transform: scale(0.97);
+}
+
 /* ==========================================================
    ANIMAÇÕES
 ========================================================== */
@@ -414,4 +486,7 @@ footer { background: var(--azul-marinho); color: var(--branco); text-align: cent
   .lugares button, .botao button { width: 100%; }
   .cidade img { height: 200px; }
   .modal { padding: 20px; }
+}
+body {
+font-family: Nunito;
 }
