@@ -4,24 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <script type="module" src="JS.js" defer></script>
+    <script src="JS.js" defer></script>
     <title>New Airs</title>
   </head>
   <body>
+    <!-- Ícones SVG (reutilizados com <use>) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="i-estrela" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z" />
+      </symbol>
+      <symbol id="i-busca" viewBox="0 0 24 24">
+        <circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="2.2" />
+        <path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+      </symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+        <circle cx="17.3" cy="6.7" r="1.2" fill="currentColor" />
+      </symbol>
+      <symbol id="i-email" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="2" />
+        <path d="M3.5 6l8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+      </symbol>
+      <symbol id="i-fechar" viewBox="0 0 24 24">
+        <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" />
+      </symbol>
+    </svg>
+
     <header>
       <nav>
         <a href="index.html">New Airs</a>
-        <a href="#como">Como Funciona</a>
+        <a href="#como">Como funciona</a>
         <a href="#destinos">Destinos</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#faq">FAQ</a>
       </nav>
     </header>
- 
 
     <main class="hero">
       <video class="bg-video" autoplay muted loop playsinline poster="capa.jpg">
@@ -31,35 +49,48 @@
         />
         <source src="video.webm" type="video/webm" />
       </video>
- 
-      <h1 class="titulo1">
-        New Airs
-        <span>Voe além dos limites</span>
-         <form class="search-box">
-      <input type="text" placeholder="Pesquise aqui"/>
-      <button type="reset"></button>
-      </form>
-      </h1>
+
+      <div class="hero-conteudo">
+        <h1 class="titulo1">New Airs</h1>
+        <p class="subtitulo">Voe além dos limites</p>
+
+        <form class="search-box" role="search" autocomplete="off">
+          <div class="search-input-wrap">
+            <input
+              type="text"
+              id="campoDestino"
+              placeholder="Para onde você quer ir?"
+              aria-label="Pesquisar destino"
+              aria-autocomplete="list"
+              aria-controls="sugestoesDestinos"
+              aria-expanded="false"
+            />
+            <div id="sugestoesDestinos" class="sugestoes-destinos" role="listbox" hidden></div>
+          </div>
+          <button type="submit">
+            <svg class="icone" aria-hidden="true"><use href="#i-busca" /></svg>
+            Buscar
+          </button>
+        </form>
+      </div>
     </main>
- 
+
     <h2>Viagem pelo Brasil com o melhor custo-benefício</h2>
- 
+
     <p class="nome">
       New Airs é um projeto feito por Matheus, Sergio, Luis e Victor,
       estudantes do Senac. Este site reúne cidades com ótimo custo-benefício
       para você viajar, descansar e sair da rotina do dia a dia.
     </p>
- 
+
     <section id="como" class="primeiro">
-   
- 
       <p class="simples">Simples e rápido</p>
       <p class="como">Como a New Airs funciona?</p>
       <p class="opções">
         Em pouco tempo você terá 15 opções de lugares com ótimo
         custo-benefício para ir, descansar e se divertir!
       </p>
- 
+
       <p class="passo1">Passo 1 e passo 2</p>
       <p class="passo2">
         Informe o destino, escolha e reserve. Voe tranquilo: digite onde quer
@@ -67,27 +98,27 @@
         embarque na sua viagem.
       </p>
     </section>
- 
+
     <section id="destinos">
       <p class="explore">Explore o Brasil</p>
       <p class="destaque">Destinos em destaque</p>
- 
-      <div class="cidades">
+
+      <div class="cidades" id="listaCidades">
         <div class="cidade">
           <span class="categoria">Mais buscados</span>
           <img
             src="https://tse1.mm.bing.net/th/id/OIP.jg4Qj6nSifQkYm1K-iijiwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
             alt="Praia de Fortaleza"
           />
-       <h3>Fortaleza</h3>
+          <h3>Fortaleza</h3>
           <div class="conteudo">
             <p>A partir de</p>
-            <h3>R$ 2.572</h3>
-            <small>por pessoa / ida e volta</small>
-            <button>Ver ofertas</button>
+            <h3>R$ 1.888,01</h3>
+            <small>por pessoa, saindo de São Paulo</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
           </div>
         </div>
- 
+
         <div class="cidade">
           <span class="categoria">Custo-benefício</span>
           <img
@@ -97,12 +128,12 @@
           <h3>Baía da Traição</h3>
           <div class="conteudo">
             <p>A partir de</p>
-            <h3>R$ 3.071</h3>
-            <small>por pessoa / ida e volta</small>
-            <button>Ver ofertas</button>
+            <h3>R$ 2.071</h3>
+            <small>passagem até João Pessoa + deslocamento</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
           </div>
         </div>
- 
+
         <div class="cidade">
           <span class="categoria">Imperdível</span>
           <img
@@ -111,42 +142,189 @@
           />
           <h3>Maceió</h3>
           <div class="conteudo">
-            <p>De</p>
+            <p>Faixa informada</p>
             <h3>R$ 2.000 a R$ 3.900</h3>
-            <small>por pessoa / ida e volta</small>
-            <button>Ver ofertas</button>
+            <small>por pessoa</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">Praia e aventura</span>
+          <img
+            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80"
+            alt="Praia representando Canoa Quebrada"
+          />
+          <h3>Canoa Quebrada</h3>
+          <div class="conteudo">
+            <p>Transporte</p>
+            <h3>R$ 884 a R$ 2.823</h3>
+            <small>de São Paulo, avião e ônibus</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">Natureza</span>
+          <img
+            src="https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=900&q=80"
+            alt="Banco de areia representando Crôa da Baleia"
+          />
+          <h3>Crôa da Baleia</h3>
+          <div class="conteudo">
+            <p>Voo informado</p>
+            <h3>R$ 3.107</h3>
+            <small>saindo de São Paulo para Belém</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">Capital nordestina</span>
+          <img
+            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80"
+            alt="Vista urbana representando Teresina"
+          />
+          <h3>Teresina</h3>
+          <div class="conteudo">
+            <p>A partir de</p>
+            <h3>R$ 1.258,54</h3>
+            <small>por pessoa, de avião saindo de São Paulo</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">História e natureza</span>
+          <img
+            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+            alt="Paisagem natural representando São Raimundo Nonato"
+          />
+          <h3>São Raimundo Nonato</h3>
+          <div class="conteudo">
+            <p>Transporte encontrado</p>
+            <h3>R$ 500 a R$ 600</h3>
+            <small>valor aproximado informado</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">Praias e cultura</span>
+          <img
+            src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80"
+            alt="Praia representando João Pessoa"
+          />
+          <h3>João Pessoa</h3>
+          <div class="conteudo">
+            <p>Ida e volta</p>
+            <h3>R$ 1.737</h3>
+            <small>de avião</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
+          </div>
+        </div>
+
+        <div class="cidade cidade-extra">
+          <span class="categoria">Sossego e natureza</span>
+          <img
+            src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=900&q=80"
+            alt="Praia representando Galinhos"
+          />
+          <h3>Galinhos</h3>
+          <div class="conteudo">
+            <p>Transporte</p>
+            <h3>R$ 1.265 a R$ 3.209</h3>
+            <small>ônibus, avião e táxi</small>
+            <button type="button" class="ver-ofertas">Ver ofertas</button>
           </div>
         </div>
       </div>
-    </section>
- 
+    
+      <div class="controle-cidades">
+        <button
+          type="button"
+          id="botaoVerMais"
+          class="botao-ver-mais"
+          aria-expanded="false"
+          aria-controls="listaCidades"
+        >
+          Veja mais destinos
+        </button>
+      </div>
+</section>
+
     <section id="beneficios">
       <h4>Benefícios exclusivos para você</h4>
       <p class="ideia">Somos um parceiro de viagem ideal para a sua viagem.</p>
- 
-      <div class="botao">
-        <button>Busca rápida</button>
-        <button>Menor preço para você</button>
-        <button>Compra segura</button>
+
+      <div class="botao beneficios-acoes">
+        <button type="button" class="beneficio-btn" data-beneficio="busca">Busca rápida</button>
+        <button type="button" class="beneficio-btn" data-beneficio="preco">Menor preço para você</button>
+        <button type="button" class="beneficio-btn" data-beneficio="seguranca">Compra segura</button>
       </div>
- 
+
+      <div id="painelBeneficio" class="painel-beneficio" hidden aria-live="polite">
+        <div>
+          <p class="painel-beneficio-etiqueta">Benefício selecionado</p>
+          <h3 id="beneficioTitulo"></h3>
+          <p id="beneficioTexto"></p>
+        </div>
+        <button type="button" id="beneficioAcao" class="beneficio-acao"></button>
+      </div>
+
       <div class="card">
         <p class="resposta">O que nossos viajantes falam?</p>
-        <p>
-          Encontrei uma passagem por R$ 2.000. Em vários sites essa mesma
-          passagem era por R$ 4.000 ⭐⭐⭐⭐⭐ — Luis
-        </p>
-        <p>
-          Esse site é muito bom, um dos melhores que já vi sobre viagem.
-          ⭐⭐⭐⭐⭐
-        </p>
+
+        <div id="listaDepoimentos">
+          <blockquote class="depoimento">
+            <p>
+              Encontrei uma passagem por R$ 2.000. Em vários sites essa mesma
+              passagem era por R$ 4.000.
+            </p>
+            <cite class="autor">
+              <span class="nota" role="img" aria-label="5 de 5 estrelas">
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+              </span>
+              Luis
+            </cite>
+          </blockquote>
+
+          <blockquote class="depoimento">
+            <p>Esse site é muito bom, um dos melhores que já vi sobre viagem.</p>
+            <cite class="autor">
+              <span class="nota" role="img" aria-label="5 de 5 estrelas">
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+                <svg class="icone"><use href="#i-estrela" /></svg>
+              </span>
+              Viajante anônimo
+            </cite>
+          </blockquote>
+        </div>
+
+        <div class="controle-avaliacoes">
+          <button
+            type="button"
+            id="botaoMaisAvaliacoes"
+            class="botao-mais-avaliacoes"
+            aria-expanded="false"
+            hidden
+          >
+            Veja mais avaliações
+          </button>
+        </div>
       </div>
     </section>
- 
-    <section id="faq">
 
+    <section id="faq">
       <p class="resposta">Dúvidas e respostas</p>
- 
+
       <div class="card1">
         <p class="cobranca">A New Airs cobra alguma taxa de serviço?</p>
         <p class="card3">
@@ -155,7 +333,7 @@
           isso. Nosso modelo de negócio é baseado em parcerias com
           companhias aéreas e agências.
         </p>
- 
+
         <p class="preco">Como garantem os menores preços?</p>
         <p class="isso">
           Nossa plataforma usa tecnologia de busca em tempo real que varre
@@ -166,46 +344,98 @@
         </p>
       </div>
     </section>
- 
-    <footer>
-      <p class="final">
-        Instagram <i class="fa-brands fa-instagram"></i> @new-airs-oficial
-      </p>
-      <p class="final">Gmail: viagens@newairs.com</p>
- 
-      <h5 class="avaliar">Avaliar:</h5>
-      <div class="estrelas">
-        <span class="estrela1">★</span>
-        <span class="estrela2">★</span>
-        <span class="estrela3">★</span>
-        <span class="estrela4">★</span>
-        <span class="estrela5">★</span>
-      </div>
-      <button>Enviar</button>
-    </footer>
- 
-    <!-- ==========================================================
-         MODAL DE BUSCA (estrutura para o JS.js controlar)
-    ========================================================== -->
-    <div id="janelaBusca" hidden>
-      <div class="fundo-modal">
-        <div class="modal">
-          <button class="fechar-modal" aria-label="Fechar busca">×</button>
-          <h2>Buscar passagem</h2>
- 
-          <label for="origem">Origem</label>
-          <input type="text" id="origem" placeholder="De onde você vai sair?" />
- 
-          <label for="destino">Destino</label>
-          <input type="text" id="destino" placeholder="Para onde você quer ir?" />
- 
-          <button id="realizarBusca">Buscar</button>
- 
-          <div id="resultadoBusca"></div>
+
+    <div id="modalOfertas" class="ofertas-overlay" hidden>
+      <div class="ofertas-modal" role="dialog" aria-modal="true" aria-labelledby="ofertaTitulo">
+        <button type="button" class="fechar-ofertas" id="fecharOfertas" aria-label="Fechar ofertas">
+          <svg class="icone" aria-hidden="true"><use href="#i-fechar" /></svg>
+        </button>
+
+        <div class="ofertas-topo">
+          <div class="ofertas-imagem-wrap">
+            <img id="ofertaImagem" class="ofertas-imagem" src="" alt="" />
+          </div>
+
+          <div class="ofertas-resumo">
+            <p class="ofertas-etiqueta">Informações pesquisadas</p>
+            <h2 id="ofertaTitulo">Destino</h2>
+            <p class="ofertas-aviso">
+              Valores e informações conforme as anotações fornecidas para o projeto.
+            </p>
+
+            <div id="ofertaDestaques" class="oferta-destaques"></div>
+          </div>
         </div>
+
+        <div id="ofertaConteudo" class="oferta-conteudo"></div>
       </div>
     </div>
- 
+
+    <footer>
+      <div class="rodape-conteudo">
+        <p class="final">
+          <svg class="icone" aria-hidden="true"><use href="#i-instagram" /></svg>
+          @new-airs-oficial
+        </p>
+        <p class="final">
+          <svg class="icone" aria-hidden="true"><use href="#i-email" /></svg>
+          viagens@newairs.com
+        </p>
+
+        <div class="avaliacao-area">
+          <h5 class="avaliar">Avalie a New Airs</h5>
+          <p class="avaliacao-intro">Escolha de 1 a 5 estrelas e conte como foi sua experiência.</p>
+
+          <form id="formAvaliacao" class="form-avaliacao">
+            <fieldset class="campo-nota">
+              <legend>Sua nota</legend>
+              <div class="estrelas" id="estrelasAvaliacao" role="radiogroup" aria-label="Escolha uma nota de 1 a 5 estrelas">
+                <button type="button" class="estrela-avaliacao" data-valor="1" role="radio" aria-checked="false" aria-label="1 estrela">
+                  <svg class="icone"><use href="#i-estrela" /></svg>
+                </button>
+                <button type="button" class="estrela-avaliacao" data-valor="2" role="radio" aria-checked="false" aria-label="2 estrelas">
+                  <svg class="icone"><use href="#i-estrela" /></svg>
+                </button>
+                <button type="button" class="estrela-avaliacao" data-valor="3" role="radio" aria-checked="false" aria-label="3 estrelas">
+                  <svg class="icone"><use href="#i-estrela" /></svg>
+                </button>
+                <button type="button" class="estrela-avaliacao" data-valor="4" role="radio" aria-checked="false" aria-label="4 estrelas">
+                  <svg class="icone"><use href="#i-estrela" /></svg>
+                </button>
+                <button type="button" class="estrela-avaliacao" data-valor="5" role="radio" aria-checked="false" aria-label="5 estrelas">
+                  <svg class="icone"><use href="#i-estrela" /></svg>
+                </button>
+              </div>
+            </fieldset>
+
+            <label for="nomeAvaliacao">Seu nome <span>(opcional)</span></label>
+            <input
+              type="text"
+              id="nomeAvaliacao"
+              maxlength="40"
+              placeholder="Seu Nome"
+            />
+
+            <label for="textoAvaliacao">Escreva sua avaliação</label>
+            <textarea
+              id="textoAvaliacao"
+              maxlength="500"
+              rows="4"
+              required
+              placeholder="Conte o que você achou do site..."
+            ></textarea>
+
+            <div class="avaliacao-rodape-form">
+              <small id="contadorAvaliacao">0/500</small>
+              <button type="submit">Enviar avaliação</button>
+            </div>
+
+            <p id="statusAvaliacao" class="status-avaliacao" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </footer>
+
     <div class="mensagem-site"></div>
   </body>
 </html>
